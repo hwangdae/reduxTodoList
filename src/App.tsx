@@ -1,42 +1,23 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { useInput } from './hook/useInput';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { useInput } from "./hook/useInput";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, TodoType } from "./type/Type";
+import uuid from "react-uuid";
+import { addTodo, delTodo, switchIsdone } from "./TodoList";
+import TodoList from "./components/TodoList";
+import InputForm from "./components/InputForm";
+import Title from "./components/Title";
 
 function App() {
-  const [inputValue,handleChange] = useInput<string>('')
-
-  const todoList = useSelector((state:any)=>{
-    return state.todoList
-  })
-  console.log(todoList)
-  const dispatch = useDispatch()
-
-  const addTodoHandler = (e:React.FormEvent)=> {
-    e.preventDefault()
-    const newTodo = {
-      id:Date.now(),
-      todo:inputValue,
-      isDone:false
-    }
-    dispatch({type:'addTodo',payload:newTodo})
-
-  }
   return (
-    <div>
-      <h1>TodoList</h1>
-      <form onSubmit={addTodoHandler}>
-        <input value={inputValue}
-        onChange={handleChange}></input>
-        <button>작성하기</button>
-      </form>
-      {todoList?.map((todo:any)=>{
-        return <div>
-          <h3>{todo.todo}</h3>
-        </div>
-      })}
-    </div>
+    <>
+      <Title />
+      <InputForm />
+      <TodoList isDone={false} />
+      <TodoList isDone={true} />
+    </>
   );
 }
 

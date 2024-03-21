@@ -1,5 +1,6 @@
 import uuid from "react-uuid";
-import { TodoType } from "./type/Type";
+import { TodoType } from "../../type/Type";
+
 
 export const addTodo = (payload: TodoType) => {
   return {
