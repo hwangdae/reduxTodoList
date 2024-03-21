@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Title />
-      <InputForm />
+      <InputForm type={"add"} />
       <TodoList isDone={false} />
       <TodoList isDone={true} />
     </>
