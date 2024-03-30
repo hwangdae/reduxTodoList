@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { TodoType } from "../type/Type";
-import { delTodo, switchIsdone, updateTodo } from "../redux/config/modules";
+import { delTodo, switchIsdone } from "../redux/config/modules";
 import InputForm from "./InputForm";
 import { useDispatch } from "react-redux";
 import Button from "../Button/Button";
 import styled from "styled-components";
 
-const Todo = ({ todo, isDone }: any) => {
+interface Props {
+  todo : TodoType;
+  isDone : boolean;
+}
+
+const Todo = ({ todo, isDone }: Props) => {
   const [isEditTodo, setIsEditTodo] = useState(false);
   const dispatch = useDispatch();
 

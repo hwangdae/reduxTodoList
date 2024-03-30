@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { RootState, TodoType } from "../type/Type";
 import Todo from "./Todo";
@@ -9,8 +9,6 @@ const TodoList = ({ isDone }: Pick<TodoType, "isDone">) => {
     return state.todoList;
   });
 
-  // console.log(todoList)
- 
   return (
     <div>
       <h2>{isDone ? "Done...🎉" : "work...👍"}</h2>
