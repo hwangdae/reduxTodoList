@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState, TodoType } from "../type/Type";
-import { delTodo, switchIsdone } from "../TodoList";
 import Todo from "./Todo";
 
 const TodoList = ({ isDone }: Pick<TodoType, "isDone">) => {
@@ -10,7 +9,7 @@ const TodoList = ({ isDone }: Pick<TodoType, "isDone">) => {
     return state.todoList;
   });
 
-  console.log(todoList)
+  // console.log(todoList)
  
   return (
     <div>
@@ -21,7 +20,7 @@ const TodoList = ({ isDone }: Pick<TodoType, "isDone">) => {
         })
         .map((todo: TodoType) => {
           return (
-           <Todo  todo={todo} isDone={isDone}/>
+           <Todo key={todo.id}  todo={todo} isDone={isDone}/>
           );
         })}
     </div>

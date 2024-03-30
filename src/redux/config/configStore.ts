@@ -1,6 +1,5 @@
 import { Reducer, combineReducers, createStore } from "redux";
-import { todoListReducer } from "../../TodoList";
-import { TodoType } from "../../type/Type";
+import { todoListReducer } from "./modules";
 
 const rootReducer = combineReducers({
     todoList : todoListReducer

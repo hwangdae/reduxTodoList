@@ -1,6 +1,6 @@
 export interface TodoType {
   id: string;
-  todo: string;
+  todo: string | undefined;
   isDone: boolean;
 }
 
